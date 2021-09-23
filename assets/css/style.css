@@ -1,27 +1,46 @@
+:root {
+  --primary-color:hsl(111, 53%, 66%);
+  --info-color:hsl(163, 7%, 21%);
+  --success-color:hsl(119, 41%, 55%);
+  --warning-color:hsl(44, 72%, 50%);
+  --danger-color:hsl(4, 90%, 58%);
+  --background-color:hsl(30, 23%, 90%);
+  --text-color:hsl(245, 16%, 16%);
+  --secondary-color:hsl(170, 17%, 55%);
+  --tertiary-color:rgb(#085199);
+  --quaternary-color:hsl(111, 98%, 26%);
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color: var(--background-color);
 }
 
-textarea{
-  background: transparent;
+textarea {
+  background: transparent; 
   border: none;
   resize: none;
-  color: #000000;
-  border-left: 1px solid black;
+  color: var(--text-color);
+  border-left: 1px solid var(--info-color);
   padding: 10px;
 }
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 10px solid var(--info-color);
+  border-top: 10px solid var(--info-color);
+} 
+
+.jumbotron .row {
+  border-top: 1px none;
 }
 
-.description{
+.description {
   white-space: pre-wrap;
 }
 
@@ -30,16 +49,17 @@ textarea{
   border-radius: 15px;
 }
 
-.row {
+body .row {
   white-space: pre-wrap;
   height: 80px;
-  border-top: 1px solid white;;
+  border-top: 1px solid var(--info-color);
+  margin-top: 4px;
 }
 
 .hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-top: 1px dashed var(--info-color);
 }
 
 .past {
@@ -65,7 +85,26 @@ textarea{
   color: white;
 }
 
+.saveBtn i { 
+  margin-left: -40px;
+  padding-top: 0;
+  font-size: 1.75rem;
+} 
+
 .saveBtn i:hover {
-  font-size: 20px;
+  font-size: 2.5rem;
   transition: all .3s ease-in-out;
+}
+
+.currentHour {
+  font-weight: bolder;
+  font-size: 24px;
+  animation-name: blinker;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blinker {
+  from {color: var(--tertiary-color);}
+  to {color: var(--quaternary-color);}
 }
