@@ -25,6 +25,7 @@ textarea {
   color: var(--text-color);
   border-left: 1px solid var(--info-color);
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 .jumbotron {
