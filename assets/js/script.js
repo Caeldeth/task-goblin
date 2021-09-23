@@ -38,4 +38,41 @@ function beginApp() {
 
     // set current day at top of page
     $("#currentDay").text(dayIs);
-}
+
+    // figure out what hour it is
+    var currentHour = moment().hours();
+
+    // have each time block discover if it is past, present or future
+    $(".time-block").each(function (){
+        //get int value from hour listing
+        var hour = parseInt($(this).attr("id"));
+
+        if (hour < currentHour) { // hour is in the past
+            // grey out block
+            $(this).addClass("past");
+            // remove blinker
+            $(this).removeClass("currentHour");
+        }
+        else if (hour === currentHour) {  //hour is now
+            // remove coloring
+            $(this).removeClass("past");
+            $(this).removeClass("future")
+            // add coloring
+            $(this).addClass("present");
+            // add blinker
+            $(this).addClass("currentHour");
+        } 
+        else {
+            //remove wrong coloring
+            $(this).removeClass("past");
+            $(this).removeClass("present");
+            $(this).removeClass("currentHour");
+
+            //add right coloring
+            $(this).addClass("future");
+        }
+    });
+};
+
+// start app
+beginApp();
