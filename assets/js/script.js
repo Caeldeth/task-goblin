@@ -13,20 +13,20 @@ var task17 = $("#text-17");
 var dayIs = moment().format("dddd, MMMM Do, YYYY");
 
 // get stuff from localstorage
-var task9Saved = localStorage.getItem("input9");
-var task10Saved = localStorage.getItem("input10");
-var task11Saved = localStorage.getItem("input11");
-var task12Saved = localStorage.getItem("input12");
-var task13Saved = localStorage.getItem("input13");
-var task14Saved = localStorage.getItem("input14");
-var task15Saved = localStorage.getItem("input15");
-var task16Saved = localStorage.getItem("input16");
-var task17Saved = localStorage.getItem("input17");
+var task9Saved = localStorage.getItem("text9");
+var task10Saved = localStorage.getItem("text10");
+var task11Saved = localStorage.getItem("text11");
+var task12Saved = localStorage.getItem("text12");
+var task13Saved = localStorage.getItem("text13");
+var task14Saved = localStorage.getItem("text14");
+var task15Saved = localStorage.getItem("text15");
+var task16Saved = localStorage.getItem("text16");
+var task17Saved = localStorage.getItem("text17");
 
 // create function to start app
 function beginApp() {
     // do ternaries for local storage
-    task9 = (task9Saved != null) ? task9.attr("val",task9Saved) : task9.attr("placeholder","Enter a task.");
+    (task9Saved != null) ? task9.val(task9Saved) : task9.attr("placeholder","Enter a task.");
     task10 = (task10Saved != null) ? task10.attr("val",task10Saved) : task10.attr("placeholder","Enter a task.");
     task11 = (task11Saved != null) ? task11.attr("val",task11Saved) : task11.attr("placeholder","Enter a task.");
     task12 = (task12Saved != null) ? task12.attr("val",task12Saved) : task12.attr("placeholder","Enter a task.");
@@ -79,3 +79,21 @@ function beginApp() {
 
 // start app
 beginApp();
+
+// capture clicks to save tasks
+$(".saveBtn").on("click", function(event){
+    // stop browser from doing browser things
+    event.preventDefault();
+
+    // grab the sibling of savebutton
+    var taskEntered = $(this).prev();
+
+    // grab the id of the text area for saving
+    var taskId = taskEntered.attr("id");
+
+    // save the value of the text area for saving
+    var textEntered = taskEntered.val();
+
+    // save things to localStorage
+    localStorage.setItem(taskId, textEntered);
+})
