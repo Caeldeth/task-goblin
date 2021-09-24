@@ -13,28 +13,30 @@ var task17 = $("#text-17");
 var dayIs = moment().format("dddd, MMMM Do, YYYY");
 
 // get stuff from localstorage
-var task9Saved = localStorage.getItem("text9");
-var task10Saved = localStorage.getItem("text10");
-var task11Saved = localStorage.getItem("text11");
-var task12Saved = localStorage.getItem("text12");
-var task13Saved = localStorage.getItem("text13");
-var task14Saved = localStorage.getItem("text14");
-var task15Saved = localStorage.getItem("text15");
-var task16Saved = localStorage.getItem("text16");
-var task17Saved = localStorage.getItem("text17");
+var task9Saved = localStorage.getItem("text-9");
+var task10Saved = localStorage.getItem("text-10");
+var task11Saved = localStorage.getItem("text-11");
+var task12Saved = localStorage.getItem("text-12");
+var task13Saved = localStorage.getItem("text-13");
+var task14Saved = localStorage.getItem("text-14");
+var task15Saved = localStorage.getItem("text-15");
+var task16Saved = localStorage.getItem("text-16");
+var task17Saved = localStorage.getItem("text-17");
 
 // create function to start app
 function beginApp() {
     // do ternaries for local storage
-    (task9Saved != null) ? task9.val(task9Saved) : task9.attr("placeholder","Enter a task.");
-    task10 = (task10Saved != null) ? task10.attr("val",task10Saved) : task10.attr("placeholder","Enter a task.");
-    task11 = (task11Saved != null) ? task11.attr("val",task11Saved) : task11.attr("placeholder","Enter a task.");
-    task12 = (task12Saved != null) ? task12.attr("val",task12Saved) : task12.attr("placeholder","Enter a task.");
-    task13 = (task13Saved != null) ? task13.attr("val",task13Saved) : task13.attr("placeholder","Enter a task.");
-    task14 = (task14Saved != null) ? task14.attr("val",task14Saved) : task14.attr("placeholder","Enter a task.");
-    task15 = (task15Saved != null) ? task15.attr("val",task15Saved) : task15.attr("placeholder","Enter a task.");
-    task16 = (task16Saved != null) ? task16.attr("val",task16Saved) : task16.attr("placeholder","Enter a task.");
-    task17 = (task17Saved != null) ? task17.attr("val",task17Saved) : task17.attr("placeholder","Enter a task.");
+    task9 = (task9Saved != null) ? task9.val(task9Saved) : task9.attr("placeholder","Enter a task.");
+    console.log(task9Saved + " - value of task9Saved", task9, " - value of task9");
+    task10 = (task10Saved != null) ? task10.val(task10Saved) : task10.attr("placeholder","Enter a task.");
+    console.log(task10Saved + " - value of task10Saved", task10, " - value of task10");
+    task11 = (task11Saved != null) ? task11.val(task11Saved) : task11.attr("placeholder","Enter a task.");
+    task12 = (task12Saved != null) ? task12.val(task12Saved) : task12.attr("placeholder","Enter a task.");
+    task13 = (task13Saved != null) ? task13.val(task13Saved) : task13.attr("placeholder","Enter a task.");
+    task14 = (task14Saved != null) ? task14.val(task14Saved) : task14.attr("placeholder","Enter a task.");
+    task15 = (task15Saved != null) ? task15.val(task15Saved) : task15.attr("placeholder","Enter a task.");
+    task16 = (task16Saved != null) ? task16.val(task16Saved) : task16.attr("placeholder","Enter a task.");
+    task17 = (task17Saved != null) ? task17.val(task17Saved) : task17.attr("placeholder","Enter a task.");
 
     // set current day at top of page
     $("#currentDay").text(dayIs);
