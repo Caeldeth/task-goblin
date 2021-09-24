@@ -41,32 +41,35 @@ function beginApp() {
 
     // figure out what hour it is
     var currentHour = moment().hours();
-
+    console.log(currentHour + " is the current hour");
+    
     // have each time block discover if it is past, present or future
     $(".time-block").each(function (){
         //get int value from hour listing
-        var hour = parseInt($(this).attr("id"));
-
+        var hour = parseInt($(this).attr("data-val"));
+        
         if (hour < currentHour) { // hour is in the past
+            console.log(hour < currentHour, "past " + hour, currentHour);
             // grey out block
             $(this).addClass("past");
             // remove blinker
-            $(this).removeClass("currentHour");
+            $(this).removeClass("future");
+            $(this).removeClass("present");
         }
-        else if (hour === currentHour) {  //hour is now
+        else if (hour == currentHour) {  //hour is now
+            console.log(hour == currentHour, "present " + hour, currentHour);
             // remove coloring
             $(this).removeClass("past");
             $(this).removeClass("future")
             // add coloring
             $(this).addClass("present");
             // add blinker
-            $(this).addClass("currentHour");
         } 
         else {
+            console.log(hour > currentHour, "future " + hour, currentHour);
             //remove wrong coloring
             $(this).removeClass("past");
             $(this).removeClass("present");
-            $(this).removeClass("currentHour");
 
             //add right coloring
             $(this).addClass("future");
